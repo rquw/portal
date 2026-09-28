@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>portal</title>
+<meta name="description" content="Alle meine Projekte an einem Ort.">
+<style>
+  :root {
+    --bg: #f4f1ea;
+    --fg: #1a1a1a;
+    --muted: #77736b;
+    --rule: #d8d3c8;
+    --link: #1a1a1a;
+    --hover: #c2410c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151515;
+      --fg: #e8e6e1;
+      --muted: #8a877f;
+      --rule: #2e2d2a;
+      --link: #e8e6e1;
+      --hover: #f08a4b;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0 auto;
+    max-width: 640px;
+    padding: 72px 20px 96px;
+    color: var(--fg);
+    background: var(--bg);
+    font: 17px/1.6 Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  header { margin-bottom: 48px; }
+  h1 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: normal;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+  }
+  header p { margin: 4px 0 0; color: var(--muted); }
+  ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+  li {
+    counter-increment: n;
+    display: grid;
+    grid-template-columns: 2.5em 1fr;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+  }
+  li:last-child { border-bottom: 1px solid var(--rule); }
+  li::before {
+    content: counter(n, decimal-leading-zero);
+    color: var(--muted);
+    font: 13px/2.1 ui-monospace, Menlo, Consolas, monospace;
+  }
+  h2 { margin: 0; font-size: 17px; font-weight: bold; }
+  h2 a { text-decoration: none; }
+  .url {
+    margin-left: 8px;
+    color: var(--muted);
+    font: 13px ui-monospace, Menlo, Consolas, monospace;
+  }
+  li p { margin: 4px 0 0; }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:hover { color: var(--hover); }
+  footer {
+    margin-top: 40px;
+    color: var(--muted);
+    font: 13px ui-monospace, Menlo, Consolas, monospace;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>portal</h1>
+  <p>Sachen, die ich gemacht habe.</p>
+</header>
+
+<ol>
+  <li>
+    <div>
+      <h2><a href="https://rquw.github.io/fabu/">fabu</a><span class="url">rquw.github.io/fabu</span></h2>
+      <p>fabu ist mein eigenes Musikprogramm! Es hat coole eigene Features wie einen öffentlichen Sample-Browser und Multiplayer.</p>
+    </div>
+  </li>
+  <li>
+    <div>
+      <h2><a href="https://rquw.github.io/McMap/">McMap</a><span class="url">rquw.github.io/McMap</span></h2>
+      <p>McMap ist ein kleines Seitenprojekt, wo man eine Karte mit allen McDonald's auf der Welt sieht, und diese abhaken kann. Dann sieht man, bei wievielen man schon war!</p>
+    </div>
+  </li>
+  <li>
+    <div>
+      <h2><a href="https://rquw.github.io/WelsGuessr/">WelsGuessr</a><span class="url">rquw.github.io/WelsGuessr</span></h2>
+      <p>WelsGuessr ist <a href="https://www.geoguessr.com">GeoGuessr</a>, aber nur in Wels. Man bekommt 5 Panoramas irgendwo in Wels, muss dann auf einer Karte versuchen Metergenau zu bestimmen wo das ist. Umso näher, desto mehr Punkte! Gibt auch Versus-Modus, Tägliche Challenge, Bestenliste....... das visuelle (knöpfe und menüs etc) hat chatgpt gemacht, um so ehrlich zu sein... doch alles andere! hab ich! gemacht!</p>
+    </div>
+  </li>
+  <li>
+    <div>
+      <h2><a href="https://faight.onrender.com">faight</a><span class="url">faight.onrender.com</span></h2>
+      <p>faight ist ein 2D multiplayer brawler spiel wo strichmännchen gegeneinander kämpfen. Die unendliche Anzahl von Runden sind kurz und knackig. Gemacht habe ich das spiel nur weil ich was mit den Leuten aus meiner Klasse spielen wollte während uns im Deutsch Unterricht fad war.</p>
+    </div>
+  </li>
+  <li>
+    <div>
+      <h2><a href="https://rquw.github.io/dontcrash/">dontcrash</a><span class="url">rquw.github.io/dontcrash</span></h2>
+      <p>dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen. (Und dass das Ähnlichkeiten mit 9/11 hat war wirklich unabsichtlich....)</p>
+    </div>
+  </li>
+</ol>
+
+<footer><a href="https://github.com/rquw">github.com/rquw</a></footer>
+</body>
+</html>
