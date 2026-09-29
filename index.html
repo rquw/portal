@@ -7,7 +7,7 @@
 <meta name="description" content="Alle meine Projekte an einem Ort.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:wght@900&family=Overpass:wght@800&family=Inter:wght@800&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #efebe2;
@@ -37,7 +37,7 @@
   header a { text-decoration: none; }
   header a:hover { text-decoration: underline; }
 
-  .hero { padding: 12vh 24px 8vh; }
+  .hero { padding: 16vh 24px 8vh; }
   .hero h1 {
     margin: 0;
     font-weight: 800;
@@ -119,11 +119,50 @@
     }
   }
 
-  #fabu       .row { --c: #d9793f; }
-  #mcmap      .row { --c: #d63a2a; }
-  #welsguessr .row { --c: #1f9d55; }
-  #faight     .row { --c: #e8c14a; --on: #121212; }
-  #dontcrash  .row { --c: #5ec8f2; --on: #121212; }
+  /* hover: each row turns into the app's own look */
+  #fabu       .row { --c: #191714; --on: #efe8dd; }
+  #mcmap      .row { --c: #ffffff; --on: #101012; }
+  #welsguessr .row { --c: #1f2533; --on: #f5f0e8; }
+  #faight     .row { --c: #141414; --on: #e8e8e8; }
+  #dontcrash  .row { --c: #161616; --on: #eeeae2; }
+
+  .name > span, .name > a { display: grid; }
+  .plain, .logo { grid-area: 1 / 1; white-space: nowrap; transition: opacity .2s, transform .25s; }
+  .logo { opacity: 0; transform: translateY(12px); font-variation-settings: normal; }
+  .logo b { font-weight: inherit; }
+  @media (hover: hover) {
+    .row:hover .plain { opacity: 0; transform: translateY(-12px); }
+    .row:hover .logo  { opacity: 1; transform: none; }
+  }
+
+  #fabu .logo {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    font-weight: 800; letter-spacing: -.036em; color: #efe8dd;
+  }
+  #fabu .logo b { color: #e07a3f; }
+  #mcmap .logo {
+    font-family: "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;
+    font-weight: 500; letter-spacing: -.035em; color: #101012;
+  }
+  #mcmap .logo b { color: #da291c; }
+  #welsguessr .logo {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 900; letter-spacing: -.01em; color: #f5f0e8; font-size: .92em;
+  }
+  #welsguessr .logo b { color: #c4a55a; }
+  #faight .logo {
+    font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 900; letter-spacing: -.042em; color: #e8e8e8; font-size: .95em;
+  }
+  #faight .logo b { color: #f2c12e; }
+  @media (hover: hover) {
+    #faight .row:hover .logo { transform: rotate(-4deg); transform-origin: left center; }
+  }
+  #dontcrash .logo {
+    font-family: Overpass, sans-serif;
+    font-weight: 800; letter-spacing: -.02em; color: #eeeae2;
+  }
+  #dontcrash .logo b { color: #e84a31; }
 
   .sortbar {
     display: flex;
@@ -156,7 +195,7 @@
   }
 
   @media (max-width: 640px) {
-    header, .hero, .row, .sortbar, footer { padding-left: 16px; padding-right: 16px; }
+    .hero, .row, .sortbar, footer { padding-left: 16px; padding-right: 16px; }
     .row { grid-template-columns: 1fr auto; }
     .num { grid-column: 1 / -1; padding: 0 0 8px; }
     .desc, .shot { grid-column: 1 / -1 !important; }
@@ -164,11 +203,6 @@
 </style>
 </head>
 <body>
-<header class="mono">
-  <span>rquw / portal</span>
-  <a href="https://github.com/rquw">github ↗</a>
-</header>
-
 <section class="hero">
   <h1>portal</h1>
   <p>Sachen, die ich gemacht habe.</p>
@@ -184,7 +218,7 @@
     <a class="row" href="https://rquw.github.io/fabu/web/">
       <span class="num mono">01</span>
       <div>
-        <h2 class="name">fabu</h2>
+        <h2 class="name"><span class="plain">fabu</span><span class="logo" aria-hidden="true">fab<b>u</b></span></h2>
         <div class="url mono">rquw.github.io/fabu/web</div>
         <p class="desc">fabu ist mein eigenes Musikprogramm! Es hat coole eigene Features wie einen öffentlichen Sample-Browser und Multiplayer.</p>
       </div>
@@ -196,7 +230,7 @@
     <a class="row" href="https://rquw.github.io/dontcrash/">
       <span class="num mono">02</span>
       <div>
-        <h2 class="name">dontcrash</h2>
+        <h2 class="name"><span class="plain">dontcrash</span><span class="logo" aria-hidden="true">dont<b>crash</b></span></h2>
         <div class="url mono">rquw.github.io/dontcrash</div>
         <p class="desc">dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen. (Und dass das Ähnlichkeiten mit 9/11 hat war wirklich unabsichtlich....)</p>
       </div>
@@ -208,7 +242,7 @@
     <a class="row" href="https://rquw.github.io/McMap/">
       <span class="num mono">03</span>
       <div>
-        <h2 class="name">McMap</h2>
+        <h2 class="name"><span class="plain">McMap</span><span class="logo" aria-hidden="true"><b>Mc</b>Map</span></h2>
         <div class="url mono">rquw.github.io/McMap</div>
         <p class="desc">McMap ist ein kleines Seitenprojekt, wo man eine Karte mit allen McDonald's auf der Welt sieht, und diese abhaken kann. Dann sieht man, bei wievielen man schon war!</p>
       </div>
@@ -220,7 +254,7 @@
     <div class="row" data-href="https://rquw.github.io/WelsGuessr/" role="link" tabindex="0">
       <span class="num mono">04</span>
       <div>
-        <h2 class="name"><a href="https://rquw.github.io/WelsGuessr/" style="text-decoration:none">WelsGuessr</a></h2>
+        <h2 class="name"><a href="https://rquw.github.io/WelsGuessr/" style="text-decoration:none"><span class="plain">WelsGuessr</span><span class="logo" aria-hidden="true">Wels<b>Guessr</b></span></a></h2>
         <div class="url mono">rquw.github.io/WelsGuessr</div>
         <p class="desc">WelsGuessr ist <a href="https://www.geoguessr.com">GeoGuessr</a>, aber nur in Wels. Man bekommt 5 Panoramas irgendwo in Wels, muss dann auf einer Karte versuchen Metergenau zu bestimmen wo das ist. Umso näher, desto mehr Punkte! Gibt auch Versus-Modus, Tägliche Challenge, Bestenliste....... das visuelle (knöpfe und menüs etc) hat chatgpt gemacht, um so ehrlich zu sein... doch alles andere! hab ich! gemacht!</p>
       </div>
@@ -232,7 +266,7 @@
     <a class="row" href="https://faight.onrender.com">
       <span class="num mono">05</span>
       <div>
-        <h2 class="name">faight</h2>
+        <h2 class="name"><span class="plain">faight</span><span class="logo" aria-hidden="true">f<b>aight</b></span></h2>
         <div class="url mono">faight.onrender.com</div>
         <p class="desc">faight ist ein 2D multiplayer brawler spiel wo strichmännchen gegeneinander kämpfen. Die unendliche Anzahl von Runden sind kurz und knackig. Gemacht habe ich das spiel nur weil ich was mit den Leuten aus meiner Klasse spielen wollte während uns im Deutsch Unterricht fad war.</p>
       </div>
