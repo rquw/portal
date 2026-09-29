@@ -15,7 +15,8 @@
     --rule: #121212;
   }
   * { box-sizing: border-box; }
-  html { background: var(--bg); }
+  html { background: var(--bg); scrollbar-width: none; }
+  html::-webkit-scrollbar { display: none; }
   body {
     margin: 0;
     color: var(--fg);
@@ -232,7 +233,7 @@
       <div>
         <h2 class="name"><span class="plain">dontcrash</span><span class="logo" aria-hidden="true">dont<b>crash</b></span></h2>
         <div class="url mono">rquw.github.io/dontcrash</div>
-        <p class="desc">dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen. (Und dass das Ähnlichkeiten mit 9/11 hat war wirklich unabsichtlich....)</p>
+        <p class="desc">dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen.</p>
       </div>
       <span class="arrow">→</span>
       <img class="shot" src="img/dontcrash.jpg" alt="" loading="lazy" onerror="this.remove()">
@@ -278,7 +279,6 @@
 
 <footer class="mono">
   <span>© 2026</span>
-  <a href="https://github.com/rquw">github.com/rquw</a>
 </footer>
 
 <script>
