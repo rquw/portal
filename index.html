@@ -125,6 +125,29 @@
   #faight     .row { --c: #e8c14a; --on: #121212; }
   #dontcrash  .row { --c: #5ec8f2; --on: #121212; }
 
+  .sortbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0 24px 14px;
+    font-size: 13px;
+  }
+  #sort {
+    font: inherit;
+    font-weight: 700;
+    color: var(--fg);
+    background: none;
+    border: 2px solid var(--fg);
+    padding: 6px 12px;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 var(--fg);
+    transition: transform .1s, box-shadow .1s;
+  }
+  #sort::after { content: " ↻"; }
+  #sort:hover { background: var(--fg); color: var(--bg); }
+  #sort:active { transform: translate(3px, 3px); box-shadow: none; }
+
   footer {
     padding: 64px 24px 40px;
     display: flex;
@@ -133,7 +156,7 @@
   }
 
   @media (max-width: 640px) {
-    header, .hero, .row, footer { padding-left: 16px; padding-right: 16px; }
+    header, .hero, .row, .sortbar, footer { padding-left: 16px; padding-right: 16px; }
     .row { grid-template-columns: 1fr auto; }
     .num { grid-column: 1 / -1; padding: 0 0 8px; }
     .desc, .shot { grid-column: 1 / -1 !important; }
@@ -151,22 +174,39 @@
   <p>Sachen, die ich gemacht habe.</p>
 </section>
 
+<div class="sortbar mono">
+  <span>sortiert nach</span>
+  <button id="sort" type="button">meiner Reihenfolge</button>
+</div>
+
 <ol>
-  <li id="fabu">
-    <a class="row" href="https://rquw.github.io/fabu/">
+  <li id="fabu" data-default="1" data-created="2" data-proud="4">
+    <a class="row" href="https://rquw.github.io/fabu/web/">
       <span class="num mono">01</span>
       <div>
         <h2 class="name">fabu</h2>
-        <div class="url mono">rquw.github.io/fabu</div>
+        <div class="url mono">rquw.github.io/fabu/web</div>
         <p class="desc">fabu ist mein eigenes Musikprogramm! Es hat coole eigene Features wie einen öffentlichen Sample-Browser und Multiplayer.</p>
       </div>
       <span class="arrow">→</span>
       <img class="shot" src="img/fabu.jpg" alt="" loading="lazy" onerror="this.remove()">
     </a>
   </li>
-  <li id="mcmap">
-    <a class="row" href="https://rquw.github.io/McMap/">
+  <li id="dontcrash" data-default="2" data-created="5" data-proud="5">
+    <a class="row" href="https://rquw.github.io/dontcrash/">
       <span class="num mono">02</span>
+      <div>
+        <h2 class="name">dontcrash</h2>
+        <div class="url mono">rquw.github.io/dontcrash</div>
+        <p class="desc">dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen. (Und dass das Ähnlichkeiten mit 9/11 hat war wirklich unabsichtlich....)</p>
+      </div>
+      <span class="arrow">→</span>
+      <img class="shot" src="img/dontcrash.jpg" alt="" loading="lazy" onerror="this.remove()">
+    </a>
+  </li>
+  <li id="mcmap" data-default="3" data-created="3" data-proud="1">
+    <a class="row" href="https://rquw.github.io/McMap/">
+      <span class="num mono">03</span>
       <div>
         <h2 class="name">McMap</h2>
         <div class="url mono">rquw.github.io/McMap</div>
@@ -176,9 +216,9 @@
       <img class="shot" src="img/mcmap.jpg" alt="" loading="lazy" onerror="this.remove()">
     </a>
   </li>
-  <li id="welsguessr">
+  <li id="welsguessr" data-default="4" data-created="1" data-proud="3">
     <div class="row" data-href="https://rquw.github.io/WelsGuessr/" role="link" tabindex="0">
-      <span class="num mono">03</span>
+      <span class="num mono">04</span>
       <div>
         <h2 class="name"><a href="https://rquw.github.io/WelsGuessr/" style="text-decoration:none">WelsGuessr</a></h2>
         <div class="url mono">rquw.github.io/WelsGuessr</div>
@@ -188,9 +228,9 @@
       <img class="shot" src="img/welsguessr.jpg" alt="" loading="lazy" onerror="this.remove()">
     </div>
   </li>
-  <li id="faight">
+  <li id="faight" data-default="5" data-created="4" data-proud="2">
     <a class="row" href="https://faight.onrender.com">
-      <span class="num mono">04</span>
+      <span class="num mono">05</span>
       <div>
         <h2 class="name">faight</h2>
         <div class="url mono">faight.onrender.com</div>
@@ -198,18 +238,6 @@
       </div>
       <span class="arrow">→</span>
       <img class="shot" src="img/faight.jpg" alt="" loading="lazy" onerror="this.remove()">
-    </a>
-  </li>
-  <li id="dontcrash">
-    <a class="row" href="https://rquw.github.io/dontcrash/">
-      <span class="num mono">05</span>
-      <div>
-        <h2 class="name">dontcrash</h2>
-        <div class="url mono">rquw.github.io/dontcrash</div>
-        <p class="desc">dontcrash ist ein Spiel, wo man ein Flugzeug steuert, und probiert, nicht in Türme zu krachen. Probier's selbst! Macht Spaß, versprochen. (Und dass das Ähnlichkeiten mit 9/11 hat war wirklich unabsichtlich....)</p>
-      </div>
-      <span class="arrow">→</span>
-      <img class="shot" src="img/dontcrash.jpg" alt="" loading="lazy" onerror="this.remove()">
     </a>
   </li>
 </ol>
@@ -226,6 +254,32 @@
     el.addEventListener('click', go);
     el.addEventListener('keydown', e => { if (e.key === 'Enter') go(e); });
     el.style.cursor = 'pointer';
+  });
+
+  // sort button cycles through orders, rows slide to their new spot
+  const sorts = [
+    { label: 'meiner Reihenfolge', key: 'default', dir: 1 },
+    { label: 'Datum (neueste zuerst)', key: 'created', dir: -1 },
+    { label: 'Stolz (am meisten zuerst)', key: 'proud', dir: -1 },
+  ];
+  let mode = 0;
+  const list = document.querySelector('ol');
+  document.getElementById('sort').addEventListener('click', e => {
+    mode = (mode + 1) % sorts.length;
+    const { label, key, dir } = sorts[mode];
+    e.currentTarget.textContent = label;
+
+    const items = [...list.children];
+    const before = new Map(items.map(li => [li, li.getBoundingClientRect().top]));
+    items.sort((a, b) => (a.dataset[key] - b.dataset[key]) * dir).forEach((li, i) => {
+      list.appendChild(li);
+      li.querySelector('.num').textContent = String(i + 1).padStart(2, '0');
+    });
+    items.forEach(li => {
+      const dy = before.get(li) - li.getBoundingClientRect().top;
+      if (dy) li.animate([{ transform: `translateY(${dy}px)` }, { transform: 'none' }],
+        { duration: 450, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    });
   });
 
   // screenshot follows the cursor
